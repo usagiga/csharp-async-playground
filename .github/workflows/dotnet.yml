@@ -1,0 +1,28 @@
+name: .NET
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+    runs-on: ubuntu-latest
+    steps:
+      # Initializing Build Environments
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+          cache: true
+          cache-dependency-path: '**/packages.lock.json'
+
+      # Run build
+      - name: Build
+        run: dotnet build
+
+      # Run test
+      - name: Test
+        run: dotnet test

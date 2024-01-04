@@ -9,6 +9,7 @@
         <Authors>Usagiga</Authors>
         <Company>Usagiga</Company>
         <Product>csharp-async-playground</Product>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
 
 </Project>
